@@ -4,10 +4,11 @@ from networks import Network
 import numpy as np
 import os
 import datetime
+import input_data
 
 BATCH_SIZE = 128
 NOISE_SIZE = 100
-EPOCHS = 10000
+EPOCHS = 500000
 img_width,img_height,channel=32,32,1
 is_training = True
 LOG_FILE = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
@@ -43,11 +44,13 @@ sess.run(tf.global_variables_initializer())
 saver = tf.train.Saver(max_to_keep=20)
 logger = helper.Logger(LOG_FILE)
 
-image_data = helper.read_digits()
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=False)
 
 for epoch in range(EPOCHS):
 	noise_samples = helper.sample_noise(BATCH_SIZE,NOISE_SIZE)
-	real_images = helper.sample_images(BATCH_SIZE,image_data)
+	real_images,_ = mnist.train.next_batch(BATCH_SIZE)
+	real_images = (np.reshape(real_images,[BATCH_SIZE,28,28,1]) - 0.5) * 2.0
+	real_images = np.lib.pad(real_images, ((0,0),(2,2),(2,2),(0,0)),'constant', constant_values=(-1, -1))
 
 	feed_dict = {noise_vector:noise_samples, image:real_images}
 	loss_d, _ = sess.run([discriminator_loss, updateD], feed_dict = feed_dict)
@@ -56,10 +59,9 @@ for epoch in range(EPOCHS):
 	loss_g, _ = sess.run([generator_loss, updateG], feed_dict = feed_dict)
 	loss_g, _ = sess.run([generator_loss, updateG], feed_dict = feed_dict)
 
-	logger.log_scalar(tag='Generator Loss',value=loss_g,step=epoch)
-	logger.log_scalar(tag='Discriminator Loss',value=loss_d,step=epoch)
-
-	if (epoch%100) == 0:
+	if (epoch%1000) == 0:
+		logger.log_scalar(tag='Generator Loss',value=loss_g,step=epoch)
+		logger.log_scalar(tag='Discriminator Loss',value=loss_d,step=epoch)
 		print("LossG: {} and LossD: {}".format(float(loss_g), float(loss_d)))
 		test_noise = helper.sample_noise(BATCH_SIZE, NOISE_SIZE)
 		images = sess.run(generated_image, feed_dict = {noise_vector:test_noise})

@@ -1,7 +1,6 @@
 #Import the libraries we will need.
 import tensorflow as tf
 import numpy as np
-import input_data
 import matplotlib.pyplot as plt
 import tensorflow.contrib.slim as slim
 import os
