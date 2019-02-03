@@ -17,11 +17,9 @@ Following is a gif of results obtained during training:
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig0.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig100.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig1000.png)
-![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig10000.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig20000.png)\
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig50000.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig100000.png)
-![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig150000.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig200000.png)
 ![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig258000.png)
 
