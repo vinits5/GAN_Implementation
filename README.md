@@ -11,7 +11,7 @@ This is a Deep Convolutional Generative Adversarial Network for mnist data of ha
 
 Following is a gif of results obtained during training:
 <p align="center">
-  <img src="https://github.com/vinits5/GAN_Implementation/blob/master/results/results.gif" title="Network Architecture">
+  <img src="https://github.com/vinits5/GAN_Implementation/blob/master/results/results.gif" width="576" height="576" title="Network Architecture">
 </p>
 
 ## Codes:
