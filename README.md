@@ -14,6 +14,10 @@ Following is a gif of results obtained during training:
   <img src="https://github.com/vinits5/GAN_Implementation/blob/master/results/results.gif" width="576" height="576" title="Network Architecture">
 </p>
 
+![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig0.png)
+![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig100.png)
+![](https://github.com/vinits5/GAN_Implementation/blob/master/results/epochs/fig1000.png)
+
 ## Codes:
 **networks.py** file contains the network architecture in tensorflow.\
 **input_data.py** file is used for i/o operations of mnist data.\
